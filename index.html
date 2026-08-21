@@ -252,6 +252,67 @@ h1 {
 .notice li:last-child { margin-bottom: 0; }
 .notice li b { color: var(--ink); font-weight: 500; }
 
+/* ===== LETTER (SUPPORTER) ===== */
+.letter-box {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 28px 30px;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+.letter-quote {
+  font-family: 'Noto Serif KR', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--olive-deep);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.letter-body {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin-bottom: 22px;
+  word-break: keep-all;
+}
+
+.letter-notice-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.letter-rules {
+  list-style: none;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.letter-rules li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
+  word-break: keep-all;
+}
+
+.letter-rules li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--lavender);
+}
+
+.letter-rules li b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
 footer {
   text-align: center;
   margin-top: 72px;
@@ -270,6 +331,7 @@ footer {
   h1 { font-size: 27px; }
   .floor { grid-template-columns: 40px 1fr; }
   .floor-tag { grid-column: 1 / -1; }
+  .letter-box { padding: 20px; }
 }
 </style>
 </head>
@@ -283,13 +345,13 @@ footer {
       <span class="stop">Manoir de Sainte-Marguerite</span>
     </div>
     <h1>산 크루아 마을 & 저택 생활 안내서</h1>
-    <p class="subtitle-fr">Guide de séjour</p>
+    <p class="subtitle-fr">Guide de séjour & Notice du Mécène</p>
     <p class="intro-text">
-      어서 오세요. 본 안내서는 산 크루아(Sainte-Croix-du-Bois) 마을과 머무르실 생트-마르그리트 저택의 주요 시설 및 이용 정보를 담고 있습니다.
+      어서 오세요. 본 안내서는 산 크루아(Sainte-Croix-du-Bois) 마을과 머무르실 생트-마르그리트 저택의 주요 시설 및 이용 정보, 그리고 후원 재단의 안내 사항을 담고 있습니다.
     </p>
   </header>
 
-  <!-- ===== 마을 둘러보기 ===== -->
+  <!-- ===== I. 마을 둘러보기 ===== -->
   <section class="section">
     <div class="section-head">
       <span class="section-num">I</span>
@@ -331,7 +393,7 @@ footer {
     </div>
   </section>
 
-  <!-- ===== 주요 거점 안내 ===== -->
+  <!-- ===== II. 주요 거점 안내 ===== -->
   <section class="section">
     <div class="section-head">
       <span class="section-num">II</span>
@@ -380,8 +442,8 @@ footer {
     </div>
   </section>
 
-  <!-- ===== 생활 규칙 ===== -->
-  <section class="section" style="margin-bottom:0;">
+  <!-- ===== III. 생활 규칙 ===== -->
+  <section class="section">
     <div class="section-head">
       <span class="section-num">III</span>
       <h2>생활 규칙 및 유의 사항</h2>
@@ -391,6 +453,29 @@ footer {
       <ul>
         <li><b>원활한 이동</b> — 저택과 마을 간 거리가 멀고 숲길이 험하므로 이동 시 관리인에게 미리 문의하시기 바랍니다.</li>
         <li><b>출입 제한</b> — 지하실 및 3층 관리인 전용 공간은 통제되오니 출입을 자제해 주십시오.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== IV. 익명 후원 재단 서신 ===== -->
+  <section class="section" style="margin-bottom:0;">
+    <div class="section-head">
+      <span class="section-num">IV</span>
+      <h2>익명 후원 재단 안내 서신</h2>
+    </div>
+    
+    <div class="letter-box">
+      <div class="letter-quote">"당신의 새로운 시작을 응원하며"</div>
+      <div class="letter-body">
+        지난 10여 년간 당신의 성장 과정을 조용히 지켜봐 온 <b>[익명의 후원자]</b>께서 이번 보육원 화재 소식을 접하고 깊은 안타까움을 전해오셨습니다.<br><br>
+        후원자께서는 당신이 일상을 회복할 때까지 필요한 모든 재정적 지원과 거처를 제공하기로 약조하셨습니다. 이에 따라 당신은 후원자께서 소유한 프랑스 남부 산 크루아 마을의 <b>'생트-마르그리트 저택'</b>에 머물게 됩니다.
+      </div>
+      
+      <div class="letter-notice-title">※ 후원 관련 유의 사항</div>
+      <ul class="letter-rules">
+        <li><b>후원자의 신원 미공개</b>: 후원자께서는 본인의 신상이나 이름이 드러나는 것을 일체 원치 않으십니다.</li>
+        <li><b>현지 관리인 상주</b>: 저택에는 후원자께서 고용한 관리인(카렐)이 상주하고 있습니다. 생활에 필요한 제반 사항은 관리인을 통해 지원받으실 수 있습니다.</li>
+        <li><b>서신 전달 불가</b>: 후원자에게 직접 감사의 뜻을 전하고 싶더라도 연락처나 주소는 공개되지 않으니 양해 부탁드립니다.</li>
       </ul>
     </div>
   </section>
