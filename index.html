@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>산 크루아 마을 & 저택 생활 안내서</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap');
+
+:root {
+  --paper: #FAF8F4;
+  --card: #FFFFFF;
+  --ink: #33302B;
+  --ink-soft: #6B6459;
+  --ink-faint: #A39C8E;
+
+  --olive: #6E7C55;
+  --olive-deep: #565F42;
+  --lavender: #8A78B0;
+
+  --line: #E7E1D5;
+  --line-soft: #F0ECE2;
+  --alert: #B25B4A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  padding: 64px 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+header {
+  margin-bottom: 72px;
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.route .stop { color: var(--olive-deep); font-weight: 600; }
+.route .sep {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--line) 0, var(--line) 4px, transparent 4px, transparent 9px);
+  min-width: 40px;
+}
+
+h1 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 700;
+  font-size: 34px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.subtitle-fr {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--lavender);
+  margin-bottom: 26px;
+}
+
+.intro-text {
+  max-width: 520px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  word-break: keep-all;
+  padding-left: 18px;
+  border-left: 2px solid var(--line);
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 60px; }
+.section:last-of-type { margin-bottom: 0; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--olive);
+  letter-spacing: 0.04em;
+}
+
+.section-head h2 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.section-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 12px 0 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  word-break: keep-all;
+}
+
+/* ===== ZONE LIST (village areas) ===== */
+.zone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.zone-card {
+  background: var(--card);
+  padding: 22px 24px;
+}
+
+.zone-card.remote { background: var(--line-soft); }
+
+.zone-title {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--olive-deep);
+  margin-bottom: 12px;
+}
+
+.zone-list { list-style: none; font-size: 12.5px; color: var(--ink-soft); }
+.zone-list li { padding: 5px 0; word-break: keep-all; }
+.zone-list li b {
+  color: var(--ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1px;
+}
+
+/* ===== LANDMARKS ===== */
+.landmark { padding: 30px 0; border-bottom: 1px solid var(--line); }
+.landmark:last-child { border-bottom: none; padding-bottom: 0; }
+.landmark:first-child { padding-top: 0; }
+
+.landmark-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.landmark h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.landmark .fr-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--lavender);
+}
+
+.landmark > p { font-size: 13.5px; color: var(--ink-soft); margin-top: 10px; }
+.landmark > p + p { margin-top: 6px; }
+.landmark .label {
+  color: var(--olive-deep);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* ===== FLOOR STACK ===== */
+.floor-stack { margin-top: 20px; }
+
+.floor {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 16px;
+  padding: 13px 0;
+  border-top: 1px solid var(--line-soft);
+  align-items: baseline;
+  font-size: 13px;
+}
+
+.floor-num {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.floor-desc { color: var(--ink-soft); }
+.floor-desc b { font-weight: 500; color: var(--ink); }
+
+.floor-tag {
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.floor.locked .floor-tag { color: var(--alert); }
+.floor.private .floor-tag { color: var(--olive-deep); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 13px; }
+
+/* ===== NOTICE ===== */
+.notice { border-left: 2px solid var(--alert); padding-left: 22px; }
+
+.notice-head {
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.notice ul { list-style: none; }
+.notice li {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+.notice li:last-child { margin-bottom: 0; }
+.notice li b { color: var(--ink); font-weight: 500; }
+
+footer {
+  text-align: center;
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 620px) {
+  body { padding: 40px 16px; }
+  .zone-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 27px; }
+  .floor { grid-template-columns: 40px 1fr; }
+  .floor-tag { grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="route">
+      <span class="stop">Sainte-Croix-du-Bois</span>
+      <span class="sep"></span>
+      <span class="stop">Manoir de Sainte-Marguerite</span>
+    </div>
+    <h1>산 크루아 마을 & 저택 생활 안내서</h1>
+    <p class="subtitle-fr">Guide de séjour</p>
+    <p class="intro-text">
+      어서 오세요. 본 안내서는 산 크루아(Sainte-Croix-du-Bois) 마을과 머무르실 생트-마르그리트 저택의 주요 시설 및 이용 정보를 담고 있습니다.
+    </p>
+  </header>
+
+  <!-- ===== 마을 둘러보기 ===== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">I</span>
+      <h2>마을 둘러보기 — 산 크루아</h2>
+    </div>
+    <p class="section-desc">
+      과거 성지순례길의 일부였으나 현재는 아늑하고 한적함이 유지되는 프랑스 남부의 시골 마을입니다. 따스한 라벤더 들판과 백양나무 숲, 오래된 석조 건물이 어우러져 있습니다.
+    </p>
+
+    <div class="zone-grid">
+      <div class="zone-card">
+        <div class="zone-title">마을 중심부</div>
+        <ul class="zone-list">
+          <li><b>중앙 광장 & 석조 분수</b>주민들의 소소한 휴식처</li>
+          <li><b>블랑 빵집 & 카페</b>매일 아침 구워내는 빵</li>
+          <li><b>우체국 겸 잡화점</b>생필품 구매 및 편지 발송</li>
+        </ul>
+      </div>
+      <div class="zone-card">
+        <div class="zone-title">편의 및 문화</div>
+        <ul class="zone-list">
+          <li><b>오래된 도서관</b>고서적과 정적 가득한 공간</li>
+          <li><b>마을 진료소</b>간단한 치료 및 처방 가능</li>
+        </ul>
+      </div>
+      <div class="zone-card">
+        <div class="zone-title">자연 및 정취</div>
+        <ul class="zone-list">
+          <li><b>석조 다리와 개울</b>산책하기 좋은 개울가</li>
+          <li><b>옛 방앗간</b>연못이 인접한 고요한 장소</li>
+        </ul>
+      </div>
+      <div class="zone-card remote">
+        <div class="zone-title">마을 끝자락</div>
+        <ul class="zone-list">
+          <li><b>울창한 고목 숲</b>발길이 닿지 않는 외딴 구역</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 주요 거점 안내 ===== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">II</span>
+      <h2>주요 거점 안내</h2>
+    </div>
+
+    <div class="landmark">
+      <div class="landmark-head">
+        <h3>성 로슈 성당</h3>
+        <span class="fr-name">Église et Fondation Saint-Roch</span>
+      </div>
+      <p><span class="label">외관</span> — 석회암 벽면과 붉은 기와지붕으로 지어진 아담하고 고전적인 성당</p>
+      <p><span class="label">특징</span> — 마을 중앙 근처에 위치하며, 관리인 카렐이 주말마다 미사와 전례 준비를 돕는 장소</p>
+    </div>
+
+    <div class="landmark">
+      <div class="landmark-head">
+        <h3>생트-마르그리트 저택</h3>
+        <span class="fr-name">Manoir de Sainte-Marguerite</span>
+      </div>
+      <p>마을에서 차로 숲길을 따라 20분 이상 올라가면 나오는 18세기풍 석조 저택입니다.</p>
+      <p><span class="label">외부 시설</span> — 넓은 잔디 정원, 오래된 피에타 석상, 낡은 분수대</p>
+
+      <div class="floor-stack">
+        <div class="floor private">
+          <div class="floor-num">3F</div>
+          <div class="floor-desc">관리인(카렐)의 개인 정비 공간</div>
+          <div class="floor-tag">사적 공간</div>
+        </div>
+        <div class="floor">
+          <div class="floor-num">2F</div>
+          <div class="floor-desc"><b>서재</b>, 빈 방(게스트룸)</div>
+          <div class="floor-tag">체류 시 사용</div>
+        </div>
+        <div class="floor">
+          <div class="floor-num">1F</div>
+          <div class="floor-desc">높은 층고의 거실, 공용 욕실, 주방</div>
+          <div class="floor-tag">주요 생활 공간</div>
+        </div>
+        <div class="floor locked">
+          <div class="floor-num">B1</div>
+          <div class="floor-desc">통제 구역</div>
+          <div class="floor-tag">항시 잠김</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 생활 규칙 ===== -->
+  <section class="section" style="margin-bottom:0;">
+    <div class="section-head">
+      <span class="section-num">III</span>
+      <h2>생활 규칙 및 유의 사항</h2>
+    </div>
+    <div class="notice" style="margin-top:24px;">
+      <div class="notice-head">유의하십시오</div>
+      <ul>
+        <li><b>원활한 이동</b> — 저택과 마을 간 거리가 멀고 숲길이 험하므로 이동 시 관리인에게 미리 문의하시기 바랍니다.</li>
+        <li><b>출입 제한</b> — 지하실 및 3층 관리인 전용 공간은 통제되오니 출입을 자제해 주십시오.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Sainte-Croix-du-Bois, France</footer>
+
+</div>
+</body>
+</html>
